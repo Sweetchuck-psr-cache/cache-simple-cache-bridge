@@ -1,0 +1,98 @@
+{
+    "name": "cache/simple-cache-bridge",
+    "description": "A PSR-6 bridge to PSR-16. This will make any PSR-6 cache compatible with SimpleCache.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "cache",
+        "psr-6",
+        "psr-16",
+        "bridge"
+    ],
+    "authors": [
+        {
+            "name": "Magnus Nordlander",
+            "email": "magnus@fervo.se",
+            "homepage": "https://github.com/magnusnordlander"
+        }
+    ],
+    "homepage": "https://www.php-cache.com/en/latest/",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "repositories": {
+        "cache/adapter-common": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck-psr-cache/cache-adapter-common.git"
+        },
+        "cache/illuminate-adapter": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck-psr-cache/cache-illuminate-adapter.git"
+        },
+        "cache/hierarchical-cache": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck-psr-cache/cache-hierarchical-cache.git"
+        },
+        "cache/redis-adapter": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck-psr-cache/cache-redis-adapter.git"
+        },
+        "cache/simple-cache-bridge": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck-psr-cache/cache-simple-cache-bridge.git"
+        },
+        "cache/integration-tests": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck-psr-cache/cache-integration-tests.git"
+        },
+        "cache/tag-interop": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck-psr-cache/cache-tag-interop.git"
+        },
+        "tedivm/stash": {
+            "type": "github",
+            "url": "https://github.com/Sweetchuck/tedivm-stash.git"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "psr/cache": "^3.0",
+        "psr/simple-cache": "^3.0"
+    },
+    "require-dev": {
+        "cache/integration-tests": "3.x-dev",
+        "squizlabs/php_codesniffer": "^3.7",
+        "phpunit/phpunit": "^10.0",
+        "symfony/cache": "^5.0 || ^6.0"
+    },
+    "provide": {
+        "psr/simple-cache-implementation": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cache\\Bridge\\SimpleCache\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cache\\Bridge\\SimpleCache\\Tests\\": "tests/src/"
+        }
+    },
+    "scripts": {
+        "lint": [
+            "@lint:phpcs"
+        ],
+        "lint:phpcs": "phpcs",
+        "test:all": "phpunit",
+        "test": [
+            "@test:acceptance"
+        ],
+        "test:acceptance": "phpunit --testsuite='Acceptance'"
+    }
+}

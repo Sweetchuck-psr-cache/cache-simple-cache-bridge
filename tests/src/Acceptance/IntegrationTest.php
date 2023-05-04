@@ -12,7 +12,7 @@ declare(strict_types = 1);
  * with this source code in the file LICENSE.
  */
 
-namespace Cache\Bridge\SimpleCache\Tests;
+namespace Cache\Bridge\SimpleCache\Tests\Acceptance;
 
 use Cache\Bridge\SimpleCache\SimpleCacheBridge;
 use Cache\IntegrationTests\SimpleCacheTest as BaseTest;
